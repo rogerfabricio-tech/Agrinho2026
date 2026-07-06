@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --verde-principal: #2E7D32;
+    --verde-escuro: #1B5E20;
+    --laranja: #F57C00;
+    --amarelo: #FFC107;
+    --cinza-claro: #f9f9f9;
+    --cinza-texto: #444;
+    --branco: #ffffff;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--cinza-texto);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Cabeçalho */
+.cabecalho {
+    background-color: var(--verde-principal);
+    color: var(--branco);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.cabecalho .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.logo h1 span {
+    color: var(--amarelo);
+}
+
+.logo p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.menu-lista {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.menu-lista a {
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.menu-lista a:hover {
+    color: var(--amarelo);
+}
+
+.menu-mobile {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--branco);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Banner */
+.banner {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('imagens/banner-agro.jpg') center/cover no-repeat;
+    color: var(--branco);
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.banner-conteudo h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--amarelo);
+}
+
+.banner-conteudo p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+.botao {
+    display: inline-block;
+    background-color: var(--laranja);
+    color: var(--branco);
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.botao:hover {
+    background-color: #E67000;
+}
+
+/* Seções */
+.secao {
+    padding: 4rem 0;
+}
+
+.fundo-claro {
+    background-color: var(--cinza-claro);
+}
+
+.titulo-secao {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--verde-escuro);
+    margin-bottom: 2rem;
+}
+
+.pilares {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.pilar {
+    background: var(--branco);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.card {
+    background: var(--branco);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-left: 4px solid var(--verde-principal);
+}
+
+.lista-sustentabilidade {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding-left: 2rem;
+    font-size: 1.1rem;
+}
+
+.conteudo-centro {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contato-conteudo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.formulario input,
+.formulario textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Rodapé */
+.rodape {
+    background-color: var(--verde-escuro);
+    color: var(--branco);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .menu-mobile {
+        display: block;
+    }
+
+    .menu-lista {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--verde-principal);
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
+    }
+
+    .menu-lista.aberto {
+        max-height: 300px;
+    }
+
+    .menu-lista li {
+        padding: 0.8rem 1rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .contato-conteudo {
+        grid-template-columns: 1fr;
+    }
+
+    .banner-conteudo h2 {
+        font-size: 2.2rem;
+    }
+}
